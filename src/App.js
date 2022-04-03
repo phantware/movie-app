@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
-import ReactMarkdown from 'react-markdown'
+import Movie from './components/Movie'
+
+const FEATURED_API =
+  'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1'
+
+const IMG_API = 'https://image.tmdb.org/t/p/w1280'
+
+const SEARCH_API =
+  'https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query='
 
 function App() {
-  const [markdown, setMarkdown] = useState('## markdown preview')
   return (
-    <main>
-      <section className='markdown'>
-        <textarea
-          className='input'
-          value={markdown}
-          onChange={(e) => setMarkdown(e.target.value)}
-        ></textarea>
-        <article className='resutl'>
-          <ReactMarkdown>{markdown}</ReactMarkdown>
-        </article>
-      </section>
-    </main>
+    <div>
+      <Movie />
+    </div>
   )
 }
 
