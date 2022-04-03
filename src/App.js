@@ -19,11 +19,16 @@ function App() {
       })
   }, [])
   return (
-    <div className='movie-container'>
-      {movies.map((movie) => (
-        <Movie key={movie.id} {...movie} />
-      ))}
-    </div>
+    <>
+      <header>
+        <input type='search' placeholder='Search...' className='search' />
+      </header>
+      <div className='movie-container'>
+        {movies.map((movie) => (
+          <Movie key={movie.id} {...movie} />
+        ))}
+      </div>
+    </>
   )
 }
 
