@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './index.css'
 import Movie from './components/Movie'
 
 const FEATURED_API =
@@ -18,7 +19,7 @@ function App() {
       })
   }, [])
   return (
-    <div>
+    <div className='movie-container'>
       {movies.map((movie) => (
         <Movie key={movie.id} {...movie} />
       ))}
