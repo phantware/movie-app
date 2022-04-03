@@ -69,6 +69,9 @@ header {
   border: 1px solid #22254b;
   border-radius: 50px;
   background-color: transparent;
-  color: #22254b;
+  color: white;
   padding: 0.5rem 1.5rem;
+}
+.search:focus {
+  outline: 0;
 }

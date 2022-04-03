@@ -9,19 +9,44 @@ const SEARCH_API =
 
 function App() {
   const [movies, setMovies] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     fetch(FEATURED_API)
       .then((res) => res.json())
       .then((data) => {
-        console.log('data', data)
         setMovies(data.results)
       })
   }, [])
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    if (searchTerm) {
+      fetch(SEARCH_API + searchTerm)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovies(data.results)
+        })
+    }
+    setSearchTerm('')
+  }
+
+  const handleOnChange = (e) => {
+    setSearchTerm(e.target.value)
+  }
+
   return (
     <>
       <header>
-        <input type='search' placeholder='Search...' className='search' />
+        <form onSubmit={handleOnSubmit}>
+          <input
+            type='search'
+            placeholder='Search...'
+            className='search'
+            value={searchTerm}
+            onChange={handleOnChange}
+          />
+        </form>
       </header>
       <div className='movie-container'>
         {movies.map((movie) => (
