@@ -75,3 +75,19 @@ header {
 .search:focus {
   outline: 0;
 }
+
+.tag {
+  background-color: #22254b;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.tag.green {
+  color: green;
+}
+.tag.orange {
+  color: orange;
+}
+.tag.red {
+  color: red;
+}
